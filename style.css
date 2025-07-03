@@ -1,0 +1,401 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --color-1: #0a0417;
+    --color-2: #111425;
+    --color-3: #ffffff;
+    --color-4: #2a2d3f;
+    --color-5: #565b78;
+}
+
+html, body {
+    background-color: var(--color-1);
+    display: flex;
+    flex: 1;
+    margin: 0px;
+    min-height: 100%;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    flex:1;
+    background-color: var(--color-2);
+}
+
+details {
+    display: flex;
+    background-color: var(--color-4);
+    width: 200px;;
+    position: relative;
+}
+
+details summary {
+    font-size: 16px;
+    font-weight: 600;
+    padding:15px;
+    border:2px solid transparent;
+}
+details[open] summary {
+    border:2px solid skyblue;
+}
+details[open] > ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-left:2px solid skyblue;
+    border-bottom:2px solid skyblue;
+    border-right:2px solid skyblue;
+    width: 100%;
+    list-style-type: none;
+    margin:0px;
+    padding:0px;
+    z-index: 9999999;
+    background-color: var(--color-4);
+}
+details[open] > ul > li {
+    padding:10px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-4);
+    cursor: pointer;
+}
+details[open] > ul > li:hover {
+    background-color: var(--color-4);
+}
+
+.action-bar {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    align-items: center;
+    padding:20px 0px;
+    background-color: var(--color-1);
+}
+.action-bar button {
+    background-color: var(--color-1);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border:0px;
+    font-weight: 500;
+    padding:0px;
+    cursor: pointer;
+    outline: none;
+}
+.action-bar button svg {
+    fill : var(--color-3);
+}
+.action-bar button:hover{
+    background-color: #ffffff20;
+    outline:3px solid skyblue;
+}
+
+.task-list {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    border-right: 1px solid var(--color-5);
+}
+.task-list .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--color-4);
+    border-left: 3px solid transparent;
+    color:var(--color-3);
+    cursor: pointer;
+}
+.task-list .item:hover, .task-list .selected-item {
+    background-color: var(--color-4);
+    border-left: 3px solid skyblue;
+}
+.task-list .item .cell {
+    margin-right: 40px;
+}
+.task-list .item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin:0px;
+    min-width: 250px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.task-list .item h4 {
+    min-width: 60px;
+    margin:0px;
+    width: 50px;
+    text-align: center;
+}
+
+.task-priority{
+    display: flex;
+    min-width: 12px;
+    min-height: 12px;
+    max-width: 12px;
+    max-height: 12px;
+    border-radius: 100%;
+    border:3px solid;
+}
+.task-attribute {
+    display: inline;
+    border-radius: 30px;
+    text-transform: uppercase;
+    border:2px solid;
+    font-size: 10px;
+    font-style: normal;
+    color: var(--color-3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+.task-attribute label, .task-attribute span {
+    display: inline-flex;
+    padding: 5px 15px;
+}
+.task-attribute label {
+    background-color: var(--color-3);
+    color: var(--color-2);
+}
+.task-priority-low {
+    border-color: greenyellow;
+}
+.task-priority-medium {
+    border-color: orange;
+}
+.task-priority-high {
+    border-color: #fd3c3c;
+}
+
+.task-status-new {
+    border-color: skyblue;
+}
+.task-status-pending {
+    border-color: violet;
+}
+.task-status-inprogress {
+    border-color: orange;
+}
+.task-status-complete {
+    border-color: greenyellow;
+}
+
+.task-priority-low label {
+    background-color: greenyellow;
+    color: var(--color-4);
+}
+.task-priority-medium label {
+    background-color: orange;
+    color: var(--color-4);
+}
+.task-priority-high label {
+    background-color: #fd3c3c;
+    color: var(--color-3);
+}
+
+.task-status-new label {
+    background-color: skyblue;
+    color: var(--color-4);
+}
+.task-status-pending label {
+    background-color: violet;
+    color: var(--color-4);
+}
+.task-status-inprogress label {
+    background-color: orange;
+    color: var(--color-4);
+}
+.task-status-complete label {
+    background-color: greenyellow;
+    color: var(--color-4);
+}
+
+.comment-header {
+    padding:0px;
+    margin: 0px 0px 30px 0px;
+    list-style-type: none;
+    border-bottom: 2px solid var(--color-5);
+}
+.comment-header li {
+    padding: 10px;
+    display: inline-flex;
+    color: var(--color-3);
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-3);
+    margin-bottom: -2px;
+}
+
+.comment {
+    display: flex;
+    color: var(--color-3);
+    margin-bottom: 30px;
+}
+.comment .img {
+    width: 50px;;
+}
+.comment .img img {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border-radius: 100%;
+    border: 2px solid #fff;
+    font-style: normal;
+}
+.comment .body {
+    display: flex;
+    flex-direction: column;
+}
+.comment .body h2 {
+    font-weight: 700;
+    font-size: 15px;
+    margin:0px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-left: 1px solid var(--color-4);
+    padding:40px;
+    background-color: var(--color-4);
+}
+.form-container h3 {
+    color: var(--color-3);
+    margin-bottom: 0px;
+    padding: 0px;
+}
+.form-container .row {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-4);
+    margin-bottom: 30px;
+}
+.form-container .row footer {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color:var(--color-3);
+}
+.form-container .row footer > ul {
+    display: flex;
+    padding:0px;
+    margin:0px;
+    list-style-type: none;
+}
+.form-container .row footer > ul > li:first-child {
+    margin-left: 0px;
+}
+.form-container .row footer > ul > li {
+    display: inline-flex;
+    margin:0px 10px;
+}
+.form-container .row:focus-within {
+   border-bottom: 1px solid var(--color-4); 
+}
+.form-container .row h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-3);
+    margin:0px;
+}
+.form-container .row p {
+    font-size: 16px;
+    color: var(--color-3);
+}
+
+.form-container .input-row {
+    border-bottom:2px solid var(--color-5);
+}
+
+.form-container .button-container {
+    margin-top:30px;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color:var(--color-3);
+}
+.user-list .user-item {
+    display: flex;
+    align-items: center;
+    padding:10px;
+    border-bottom:1px solid var(--color-5);
+    cursor: pointer;
+}
+.user-list .user-item:hover, .user-item-selected {
+    background-color: var(--color-5);
+}
+.user-list .user-item img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.user-list .user-item span {
+    display: flex;
+    color: var(--color-3);
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.task-users-list {
+    display: flex;
+    list-style-type: none;
+    padding:0px 0px 0px 15px;
+    margin: 0px 40px 0px 0px;
+    min-width: 100px;
+    max-width: 100px;
+}
+.task-users-list li img {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border-radius: 100%;
+    border:2px solid #fff;
+    margin-left: -15px;
+    font-style: normal;
+}
+.width-100-px {
+    width: 100px;
+}
+
+input[type=text], textarea{
+    width: 100%;
+    background-color: var(--color-4);
+    padding: 15px 0px;
+    border: 0px;
+    color: var(--color-3);
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    resize: none;
+    font-family: inherit;
+}
+textarea {
+    font-weight: 500;
+    font-size: 16px;
+}
+button {
+    background: skyblue;
+    border: 0px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: 700;
+    outline: 4px solid var(--color-5);
+    cursor: pointer;
+}
